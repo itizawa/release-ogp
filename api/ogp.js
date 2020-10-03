@@ -52,8 +52,8 @@ export default async (req, res) => {
     context.font = `${TEXT_SIZE}px ${FONT_FAMILY}`;
     context.fillStyle = TEXT_COLOR;
 
-    // 。 区切りで 2こ区切り
-    const texts = text.split('。');
+    // ! 区切りで 2こ区切り
+    const texts = text.split('!');
 
     const textLines = texts.map((text) => splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context))
 
