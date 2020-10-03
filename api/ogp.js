@@ -55,11 +55,7 @@ export default async (req, res) => {
     // 。 区切りで 2こ区切り
     const texts = text.split('。');
 
-    const textLines = texts.map((text) => {
-      [...splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context)]
-    })
-
-    textLines.flatMap()
+    const textLines = texts.map((text) => splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context))
 
     let lineY = CANVAS_HEIGHT / 2 - ((TEXT_SIZE + TEXT_LINE_MARGIN_SIZE) / 2) * (textLines.length - 1);
 
