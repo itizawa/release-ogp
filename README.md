@@ -1,9 +1,9 @@
-# penguin-ogp
+# release-ogp
 
 ## description
 query に
-`{text: 'こんにちは人類'}` を渡すことでOGP画像を生成します
+`{text: 'こんにちは人類'}` を渡すことでリリース用の画像を生成します
 
 ## example
-- `https://penguin-ogp.vercel.app/api/ogp?text=こんにちは人類`
-<image src="https://penguin-ogp.vercel.app/api/ogp?text=こんにちは人類" />
+- `https://release-ogp.vercel.app/api/ogp?text=v1.0.3リリース`
+<image src="https://release-ogp.vercel.app/api/ogp?text=v1.0.3リリース" />
