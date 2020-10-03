@@ -1,8 +1,14 @@
 import * as path from "path";
-const { createCanvas, registerFont, loadImage } = require("canvas");
+const {
+  createCanvas,
+  registerFont,
+  loadImage
+} = require("canvas");
 
 export default async (req, res) => {
-  const { text } = req.query;
+  const {
+    text
+  } = req.query;
 
   function splitByMeasureWidth(str, maxWidth, context) {
     const lines = [];
@@ -32,7 +38,10 @@ export default async (req, res) => {
 
     const BACKGROUND_IMAGE_PATH = path.join(__dirname, "..", "images", "release.png");
 
-    registerFont(FONT_PATH, { family: FONT_FAMILY });
+    registerFont(FONT_PATH, {
+      family: FONT_FAMILY
+    });
+
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const context = canvas.getContext("2d");
 
@@ -42,7 +51,13 @@ export default async (req, res) => {
 
     context.font = `${TEXT_SIZE}px ${FONT_FAMILY}`;
     context.fillStyle = TEXT_COLOR;
-    const textLines = splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context);
+
+    // 。 区切りで 2こ区切り
+    const texts = text.split('。');
+
+    const textLines = texts.map((text) => {
+      [...splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context)]
+    })
 
     let lineY = CANVAS_HEIGHT / 2 - ((TEXT_SIZE + TEXT_LINE_MARGIN_SIZE) / 2) * (textLines.length - 1);
 
