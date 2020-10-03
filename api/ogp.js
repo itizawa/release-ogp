@@ -59,6 +59,8 @@ export default async (req, res) => {
       [...splitByMeasureWidth(text, CANVAS_WIDTH - TEXT_MARGIN_X, context)]
     })
 
+    textLines.flatMap()
+
     let lineY = CANVAS_HEIGHT / 2 - ((TEXT_SIZE + TEXT_LINE_MARGIN_SIZE) / 2) * (textLines.length - 1);
 
     textLines.forEach((line) => {
