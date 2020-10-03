@@ -18,7 +18,7 @@ export default async (req, res) => {
     return lines;
   }
 
-  async function generateImage(text) {
+  async function generateImage(text = "") {
     const CANVAS_WIDTH = 1200;
     const CANVAS_HEIGHT = 630;
 
